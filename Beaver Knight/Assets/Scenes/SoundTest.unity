@@ -178,6 +178,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 37da5ed8773ac2e4e84dec0e64c7ec1d, type: 3}
   - {fileID: 8300000, guid: dec8f05fa1fc041439fa83229838657b, type: 3}
   - {fileID: 8300000, guid: 6984af799b20bcc43882debaa5f23e5a, type: 3}
+  - {fileID: 8300000, guid: 64a3948d7d19ded4b89cfa437ca0617c, type: 3}
   _audioSourceMusic: {fileID: 1873941173}
   _musicList: []
   _audioSourceMenu: {fileID: 1381940870}

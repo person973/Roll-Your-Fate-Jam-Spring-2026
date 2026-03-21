@@ -44,7 +44,11 @@ public class SoundManager : MonoBehaviour
     [SerializeField]
     [Tooltip("A list of all player sounds")]
     private List<AudioClip> _playerSounds;
-
+    /// <summary>
+    /// Player Step: footsteps for the player, used when the player walks
+    /// Player Impact: when the player makes a large impact with something, such as falling to the floor
+    /// Player Death: when the player dies
+    /// </summary>
     public List<AudioClip> PlayerSounds
     {
         get
@@ -60,7 +64,13 @@ public class SoundManager : MonoBehaviour
     [SerializeField]
     [Tooltip("A list of all level sounds")]
     private List<AudioClip> _levelSounds;
-
+    /// <summary>
+    /// Box Death: when a box is killed in some way, like being eaten or touching spikes
+    /// Box Push: when the player pushes a box
+    /// Box Impact: when a box makes a large impact with something, such as falling to the floor
+    /// Win: when the player collides with the other knight, triggering a level win
+    /// Level Rotate: when the player rotates the level by any amount
+    /// </summary>
     public List<AudioClip> LevelSounds
     {
         get
@@ -76,7 +86,9 @@ public class SoundManager : MonoBehaviour
     [SerializeField]
     [Tooltip("A list of all music")]
     private List<AudioClip> _musicList;
-
+    /// <summary>
+    /// 
+    /// </summary>
     public List<AudioClip> MusicList
     {
         get
@@ -92,7 +104,10 @@ public class SoundManager : MonoBehaviour
     [SerializeField]
     [Tooltip("A list of all menu sounds")]
     private List<AudioClip> _menuSounds;
-
+    /// <summary>
+    /// Menu Mouse Over: When the user mouses over a button on the menu
+    /// Menu Button Click: When the user clicks a button on the menu
+    /// </summary>
     public List<AudioClip> MenuSounds
     {
         get
