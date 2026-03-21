@@ -1976,7 +1976,6 @@ MonoBehaviour:
   m_TargetDisplay: 0
   m_ClearColor: {r: 0, g: 0, b: 0, a: 0}
   m_TargetSize: {x: 1320.6001, y: 651.9}
-  m_TargetSize: {x: 1320.6001, y: 651.9}
   m_TextureFilterMode: 0
   m_TextureHideFlags: 61
   m_RenderIMGUI: 1
@@ -2022,10 +2021,6 @@ MonoBehaviour:
     m_MarginBottom: 0
     m_LastShownAreaInsideMargins:
       serializedVersion: 2
-      x: -440.20004
-      y: -217.30002
-      width: 880.4001
-      height: 434.60004
       x: -440.20004
       y: -217.30002
       width: 880.4001
