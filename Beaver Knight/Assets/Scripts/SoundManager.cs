@@ -161,13 +161,7 @@ public class SoundManager : MonoBehaviour
     public void PlayMusic(AudioClip music)
     {
         _audioSourceMusic.clip = music;
-
-        while(!_audioSourceMusic.isPlaying)
-        {
-            _audioSourceMusic.Play();
-        }
-
-        //CALL STOPMUSIC PLEASE
+        _audioSourceMusic.loop = true;
     }
 
     /// <summary>
@@ -175,6 +169,7 @@ public class SoundManager : MonoBehaviour
     /// </summary>
     public void StopMusic()
     {
+        _audioSourceMusic.loop = false;
         _audioSourceMusic.Stop();
     }
 }
