@@ -1,32 +1,26 @@
-using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.Controls;
 
 public class CharacterController : MonoBehaviour
 {
-    [SerializeField]
-    private Rigidbody2D rb;
-    [SerializeField]
-    private float movementFactor = 7.5f;
-    //rotation stuff
+    [SerializeField] private Rigidbody2D rb;
+    [SerializeField] private float movementSpeed = 7.5f;
+    [SerializeField] private float gravityStrength = 9.81f;
+    [SerializeField] private float doublePressWindow = 0.3f;
+
     public InputAction rotateAction;
-    private float lastPressTime;
-    private float doublePressTimer = 0.3f;
+    private InputAction moveAction;
 
-    //gravity sim
-    private Vector2 gravity = new Vector2(0f, -3);
-    private Quaternion gravityDirection;
-    bool notOnGround = true;
+    //Per-key double-press tracking
+    private float lastAPressTime = -1f;
+    private float lastDPressTime = -1f;
 
+    private Vector2 gravityDirection = Vector2.down;
 
-    InputAction moveAction;
-
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         moveAction = InputSystem.actions.FindAction("Move");
-        gravityDirection = transform.rotation;
     }
 
     void OnEnable()
@@ -35,64 +29,66 @@ public class CharacterController : MonoBehaviour
         rotateAction.performed += OnRotate;
     }
 
-    // Update is called once per frame
-    void Update()
+    void OnDisable()
     {
-        if (notOnGround)
-        {
-            ApplyGravity();
-        }
-        
+        rotateAction.performed -= OnRotate;
+        rotateAction.Disable();
+    }
+
+    void FixedUpdate()
+    {
+        //Apply custom gravity every physics step
+        rb.AddForce(gravityDirection * gravityStrength, ForceMode2D.Force);
+
+        //set velocity along the "right" axis relative to current orientation
+        //movement is on the axis perpendicular to gravity direction
         Vector2 moveVal = moveAction.ReadValue<Vector2>();
-
-        rb.AddForceX(moveVal.x * movementFactor * Time.deltaTime, ForceMode2D.Impulse);
-    }
-
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (collision.collider.CompareTag("ground"))
-        {
-            notOnGround = false;
-        }
-    }
-
-    void ApplyGravity()
-    {
-        //gravity
-        if (gravityDirection.y == 0)
-        {
-            rb.AddForce(gravity);
-        }
-        else
-        {
-            rb.AddForce(gravityDirection.eulerAngles * gravity);
-        }
+        Vector2 moveAxis = new Vector2(transform.right.x, transform.right.y);
+        //preserve current velocity
+        float gravityVelocity = Vector2.Dot(rb.linearVelocity, gravityDirection.normalized);
+        //movement on the perpendicular axis + gravity on the gravity axis
+        rb.linearVelocity = moveAxis * moveVal.x * movementSpeed
+                          + gravityDirection.normalized * gravityVelocity;
     }
 
     void OnRotate(InputAction.CallbackContext ctx)
     {
-        if (Time.time - lastPressTime < doublePressTimer)
+        if (ctx.control is KeyControl keyControl)
         {
-            if (ctx.control is KeyControl keyControl)
+            if (keyControl.keyCode == Key.D)
             {
-                if (keyControl.keyCode == Key.D)
+                if (Time.time - lastDPressTime < doublePressWindow)
                 {
-                    gravity.x = 3;
-                    gravity.y = 0;
-                    gravityDirection = quaternion.Euler(0, gravityDirection.y + 90, 0);
-                    transform.rotation = Quaternion.FromToRotation(transform.up, -gravityDirection.eulerAngles) * transform.rotation;
-                    notOnGround = true;
+                    RotateGravity(90f);
+                    lastDPressTime = -1f; //reset so a third press doesn't trigger again
                 }
-                else if (keyControl.keyCode == Key.A)
+                else
                 {
-                    gravity.x = -3;
-                    gravity.y = 0;
-                    gravityDirection = quaternion.Euler(0, gravityDirection.y - 90, 0);
-                    transform.rotation = Quaternion.FromToRotation(transform.up, -gravityDirection.eulerAngles) * transform.rotation;
-                    notOnGround = true;
+                    lastDPressTime = Time.time;
+                }
+            }
+            else if (keyControl.keyCode == Key.A)
+            {
+                if (Time.time - lastAPressTime < doublePressWindow)
+                {
+                    RotateGravity(-90f);
+                    lastAPressTime = -1f;
+                }
+                else
+                {
+                    lastAPressTime = Time.time;
                 }
             }
         }
-        lastPressTime = Time.time;
+    }
+
+    private void RotateGravity(float angleDeg)
+    {
+        //rotate the gravity vector around Z
+        Quaternion rotation = Quaternion.Euler(0, 0, angleDeg);
+        gravityDirection = rotation * gravityDirection;
+
+        //rotate the player sprite
+        transform.rotation *= rotation;
     }
 }
