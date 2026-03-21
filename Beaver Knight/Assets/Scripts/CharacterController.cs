@@ -17,6 +17,7 @@ public class CharacterController : MonoBehaviour
     //gravity sim
     private Vector2 gravity = new Vector2(0f, -3);
     private Quaternion gravityDirection;
+    bool notOnGround = true;
 
 
     InputAction moveAction;
@@ -37,24 +38,35 @@ public class CharacterController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //gravity
-        if (gravityDirection.z == 0)
+        if (notOnGround)
         {
-            rb.AddForce(gravity);
+            ApplyGravity();
         }
-        else
-        {                 
-            rb.AddForce(gravityDirection.eulerAngles * gravity);
-        }
-
+        
         Vector2 moveVal = moveAction.ReadValue<Vector2>();
 
         rb.AddForceX(moveVal.x * movementFactor * Time.deltaTime, ForceMode2D.Impulse);
     }
 
-    //using this pretty much to only simulate gravity for the object
-    void FixedUpdate()
+    private void OnCollisionEnter2D(Collision2D collision)
     {
+        if (collision.collider.CompareTag("ground"))
+        {
+            notOnGround = false;
+        }
+    }
+
+    void ApplyGravity()
+    {
+        //gravity
+        if (gravityDirection.y == 0)
+        {
+            rb.AddForce(gravity);
+        }
+        else
+        {
+            rb.AddForce(gravityDirection.eulerAngles * gravity);
+        }
     }
 
     void OnRotate(InputAction.CallbackContext ctx)
@@ -65,14 +77,19 @@ public class CharacterController : MonoBehaviour
             {
                 if (keyControl.keyCode == Key.D)
                 {
-                    gravityDirection = quaternion.Euler(0, 0, 90);
+                    gravity.x = 3;
+                    gravity.y = 0;
+                    gravityDirection = quaternion.Euler(0, gravityDirection.y + 90, 0);
                     transform.rotation = Quaternion.FromToRotation(transform.up, -gravityDirection.eulerAngles) * transform.rotation;
+                    notOnGround = true;
                 }
                 else if (keyControl.keyCode == Key.A)
                 {
-                    gravityDirection = quaternion.Euler(0, 0, -90);
+                    gravity.x = -3;
+                    gravity.y = 0;
+                    gravityDirection = quaternion.Euler(0, gravityDirection.y - 90, 0);
                     transform.rotation = Quaternion.FromToRotation(transform.up, -gravityDirection.eulerAngles) * transform.rotation;
-
+                    notOnGround = true;
                 }
             }
         }
