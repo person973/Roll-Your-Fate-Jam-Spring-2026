@@ -3,7 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 
 /// <summary>
-/// What the sound is being played from. This is used to determine what audio source the audio clip will play from
+/// What the sound is being played from. This is used to determine what audio source the audio clip will play from.
+/// player: player sounds are any sounds made by the player (walking, impact, chomp)
+/// level: level sounds are any level geometry (box impact/death) and rotation
+/// music: any background music that plays during the game
+/// menu: sounds made by the menu (button hover/click)
 /// </summary>
 public enum SoundTarget
 {
@@ -17,7 +21,9 @@ public class SoundManager : MonoBehaviour
 {
     //Fields
     private static SoundManager _instance = null;
-
+    /// <summary>
+    /// In order to make this a singleton, _instance is used to create an instance.
+    /// </summary>
     public static SoundManager Instance
     {
         get
@@ -101,6 +107,11 @@ public class SoundManager : MonoBehaviour
     private SoundManager() {}
 
     //Methods
+    /// <summary>
+    /// Plays a sound somewhere in the game.
+    /// </summary>
+    /// <param name="target">What type of sound it is (player, level, music, menu)</param>
+    /// <param name="sound">The audio clip for the sound</param>
     public void PlaySound(SoundTarget target, AudioClip sound)
     {
         if(target == SoundTarget.player)
