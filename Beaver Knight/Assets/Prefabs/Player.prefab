@@ -179,11 +179,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0b85d3ce50254d16bec37ba687f28fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CharacterController
-  rb: {fileID: 2727110958533668669}
+  rb: {fileID: 0}
   movementSpeed: 7.5
   gravityStrength: 9.81
   doublePressWindow: 0.3
-  mainCamera: {fileID: 0}
   rotateAction:
     m_Name: Rotate
     m_Type: 0

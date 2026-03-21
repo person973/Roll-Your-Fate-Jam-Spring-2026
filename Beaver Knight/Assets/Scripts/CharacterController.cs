@@ -9,8 +9,6 @@ public class CharacterController : MonoBehaviour
     [SerializeField] private float gravityStrength = 9.81f;
     [SerializeField] private float doublePressWindow = 0.3f;
 
-    [SerializeField] private Camera mainCamera;
-
     public InputAction rotateAction;
     private InputAction moveAction;
 
@@ -92,6 +90,5 @@ public class CharacterController : MonoBehaviour
 
         //rotate the player sprite
         transform.rotation *= rotation;
-        mainCamera.transform.rotation *= rotation;
     }
 }
