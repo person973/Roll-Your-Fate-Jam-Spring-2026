@@ -87,6 +87,7 @@ public class SoundManager : MonoBehaviour
     [Tooltip("A list of all music")]
     private List<AudioClip> _musicList;
     /// <summary>
+    /// Beaver Adventure: waltzish string-focussed track, bouncy and hopeful, a bit whimsical. Probably for level 1
     /// 
     /// </summary>
     public List<AudioClip> MusicList
