@@ -90,6 +90,7 @@ public class SoundManager : MonoBehaviour
     /// Beaver Adventure: waltzish string-focussed track, bouncy and hopeful, a bit whimsical. Probably for level 1
     /// Duet for Harpsichord and organ: short, slow, angry duet. Probably for main menu
     /// Escape Room: bright, jollyish canon. Probably for level 3
+    /// Await: solumn, then turns to joy, and then sad again. Probably for level 2
     /// </summary>
     public List<AudioClip> MusicList
     {
