@@ -16,7 +16,8 @@ public class CharacterController : MonoBehaviour
     private float lastAPressTime = -1f;
     private float lastDPressTime = -1f;
 
-    private Vector2 gravityDirection = Vector2.down;
+    //Made public so the moving blocks could follow the gravity
+    public Vector2 gravityDirection = Vector2.down;
 
     void Start()
     {
