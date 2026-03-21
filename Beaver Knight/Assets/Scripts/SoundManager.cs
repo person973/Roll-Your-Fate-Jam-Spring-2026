@@ -141,6 +141,7 @@ public class SoundManager : MonoBehaviour
             _audioSourceLevel.clip = sound;
             _audioSourceLevel.Play();
         }
+        //This works on its own, but PlayMusic is preferred for playing music
         else if (target == SoundTarget.music)
         {
             _audioSourceMusic.clip = sound;
@@ -151,5 +152,29 @@ public class SoundManager : MonoBehaviour
             _audioSourceMenu.clip = sound;
             _audioSourceMenu.Play();
         }
+    }
+
+    /// <summary>
+    /// Loops a music track forever. REMEMBER TO CALL StopMusic!!!!!!!!!!
+    /// </summary>
+    /// <param name="music">The music to play</param>
+    public void PlayMusic(AudioClip music)
+    {
+        _audioSourceMusic.clip = music;
+
+        while(!_audioSourceMusic.isPlaying)
+        {
+            _audioSourceMusic.Play();
+        }
+
+        //CALL STOPMUSIC PLEASE
+    }
+
+    /// <summary>
+    /// Stops the music audio source.
+    /// </summary>
+    public void StopMusic()
+    {
+        _audioSourceMusic.Stop();
     }
 }

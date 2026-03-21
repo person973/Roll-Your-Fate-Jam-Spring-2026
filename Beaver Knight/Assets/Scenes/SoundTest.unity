@@ -183,6 +183,7 @@ MonoBehaviour:
   _musicList:
   - {fileID: 8300000, guid: de6192fe0f958744da045f43d981b625, type: 3}
   - {fileID: 8300000, guid: 81f1eb7db4e88ad49a8d936e57bcd8ba, type: 3}
+  - {fileID: 8300000, guid: 5a617dc54d0776b48b4c733fef3d93e7, type: 3}
   _audioSourceMenu: {fileID: 1381940870}
   _menuSounds:
   - {fileID: 8300000, guid: 9b0a77700055caf448029858d5edec6d, type: 3}
