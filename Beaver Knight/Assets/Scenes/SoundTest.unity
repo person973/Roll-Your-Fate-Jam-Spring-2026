@@ -180,7 +180,9 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 6984af799b20bcc43882debaa5f23e5a, type: 3}
   - {fileID: 8300000, guid: 64a3948d7d19ded4b89cfa437ca0617c, type: 3}
   _audioSourceMusic: {fileID: 1873941173}
-  _musicList: []
+  _musicList:
+  - {fileID: 8300000, guid: de6192fe0f958744da045f43d981b625, type: 3}
+  - {fileID: 8300000, guid: 81f1eb7db4e88ad49a8d936e57bcd8ba, type: 3}
   _audioSourceMenu: {fileID: 1381940870}
   _menuSounds:
   - {fileID: 8300000, guid: 9b0a77700055caf448029858d5edec6d, type: 3}
@@ -228,7 +230,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
-  m_Resource: {fileID: 0}
+  m_Resource: {fileID: 8300000, guid: 7ddc293aa27952f49817a1d9ded10142, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -486,7 +488,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
-  m_Resource: {fileID: 0}
+  m_Resource: {fileID: 8300000, guid: 2581d85b8d0d5224d8d14ba962411a81, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -615,7 +617,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
-  m_Resource: {fileID: 0}
+  m_Resource: {fileID: 8300000, guid: de6192fe0f958744da045f43d981b625, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
