@@ -1976,9 +1976,7 @@ MonoBehaviour:
   m_TargetDisplay: 0
   m_ClearColor: {r: 0, g: 0, b: 0, a: 0}
   m_TargetSize: {x: 1320.6001, y: 651.9}
-=======
   m_TargetSize: {x: 1320.6001, y: 651.9}
->>>>>>> main
   m_TextureFilterMode: 0
   m_TextureHideFlags: 61
   m_RenderIMGUI: 1
@@ -1997,10 +1995,6 @@ MonoBehaviour:
     m_HBaseRangeMax: 440.20004
     m_VBaseRangeMin: -217.30002
     m_VBaseRangeMax: 217.30002
-<<<<<<< CharController
->>>>>>> main
-=======
->>>>>>> main
     m_HAllowExceedBaseRangeMin: 1
     m_HAllowExceedBaseRangeMax: 1
     m_VAllowExceedBaseRangeMin: 1
@@ -2022,7 +2016,6 @@ MonoBehaviour:
       height: 434.6
     m_Scale: {x: 0.99999994, y: 0.99999994}
     m_Translation: {x: 440.2, y: 217.3}
->>>>>>> main
     m_MarginLeft: 0
     m_MarginRight: 0
     m_MarginTop: 0
@@ -2033,10 +2026,6 @@ MonoBehaviour:
       y: -217.30002
       width: 880.4001
       height: 434.60004
-    m_MinimalGUI: 1
-  m_defaultScale: 0.99999994
-  m_LastWindowPixelSize: {x: 1320.6001, y: 683.4}
-=======
       x: -440.20004
       y: -217.30002
       width: 880.4001
@@ -2044,7 +2033,6 @@ MonoBehaviour:
     m_MinimalGUI: 1
   m_defaultScale: 0.99999994
   m_LastWindowPixelSize: {x: 1320.6001, y: 683.4}
->>>>>>> main
   m_ClearInEditMode: 1
   m_NoCameraWarning: 1
   m_LowResolutionForAspectRatios: 00000000000000000000
