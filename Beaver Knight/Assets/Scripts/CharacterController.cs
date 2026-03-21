@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.Controls;
@@ -5,6 +6,8 @@ using UnityEngine.InputSystem.Controls;
 public class CharacterController : MonoBehaviour
 {
     [SerializeField] private Rigidbody2D rb;
+    [SerializeField] private GameObject playerPrefab;
+    [SerializeField] private Vector3 spawnPoint;
     [SerializeField] private float movementSpeed = 7.5f;
     [SerializeField] private float gravityStrength = 9.81f;
     [SerializeField] private float doublePressWindow = 0.3f;
@@ -91,5 +94,17 @@ public class CharacterController : MonoBehaviour
 
         //rotate the player sprite
         transform.rotation *= rotation;
+    }
+
+    /// <summary>
+    /// Track Collisions, mainly spikes and breakable walls.
+    /// </summary>
+    /// <param name="collision"></param>
+    private void OnCollisionEnter(Collision collision)
+    {
+       if (collision.gameObject.CompareTag("spike"))
+        {
+            Instantiate(playerPrefab, spawnPoint, transform.rotation);
+        }
     }
 }
