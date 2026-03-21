@@ -19,7 +19,7 @@ MonoBehaviour:
     width: 2560
     height: 1349.3334
   m_ShowMode: 4
-  m_Title: Project
+  m_Title: Scene
   m_RootView: {fileID: 6}
   m_MinSize: {x: 875, y: 300}
   m_MaxSize: {x: 10000, y: 10000}
@@ -43,9 +43,9 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
     y: 36
-    width: 2560
-    height: 1293.3334
-  m_MinSize: {x: 300, y: 106}
+    width: 1536
+    height: 812.8
+  m_MinSize: {x: 300, y: 112}
   m_MaxSize: {x: 24288, y: 16192}
   vertical: 0
   controlID: 47
@@ -221,7 +221,7 @@ MonoBehaviour:
     y: 0
     width: 1954.6666
     height: 1293.3334
-  m_MinSize: {x: 200, y: 106}
+  m_MinSize: {x: 200, y: 112}
   m_MaxSize: {x: 16192, y: 16192}
   vertical: 1
   controlID: 48
@@ -245,9 +245,9 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
     y: 0
-    width: 1954.6666
-    height: 766
-  m_MinSize: {x: 200, y: 50}
+    width: 1172.8
+    height: 481.6
+  m_MinSize: {x: 200, y: 56}
   m_MaxSize: {x: 16192, y: 8096}
   vertical: 0
   controlID: 38
@@ -594,7 +594,7 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets
+    - Assets/Sounds/Music
     m_Globs: []
     m_ProductIds: 
     m_AnyWithAssetOrigin: 0
@@ -604,7 +604,7 @@ MonoBehaviour:
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets
+  - Assets/Sounds/Music
   m_LastFoldersGridSize: 64
   m_LastProjectPath: D:\Profiles\mjb9824\Documents\GitHub\Roll-Your-Fate-Jam-Spring-2026\Beaver
     Knight
@@ -614,12 +614,18 @@ MonoBehaviour:
   m_FolderTreeState:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs:
-    - m_Data: 66094
+    - m_Data: 49132
     m_LastClickedID:
-      m_Data: 66094
+      m_Data: 49132
     m_ExpandedIDs:
     - m_Data: 0
-    - m_Data: 66094
+    - m_Data: 48824
+    - m_Data: 48826
+    - m_Data: 48828
+    - m_Data: 48830
+    - m_Data: 48832
+    - m_Data: 48834
+    - m_Data: 49128
     - m_Data: 1000000000
     - m_Data: 2147483647
     m_RenameOverlay:
@@ -652,7 +658,14 @@ MonoBehaviour:
     m_SelectedIDs: []
     m_LastClickedID:
       m_Data: 0
-    m_ExpandedIDs: []
+    m_ExpandedIDs:
+    - m_Data: 0
+    - m_Data: 48824
+    - m_Data: 48826
+    - m_Data: 48828
+    - m_Data: 48830
+    - m_Data: 48832
+    - m_Data: 48834
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -681,7 +694,7 @@ MonoBehaviour:
   m_ListAreaState:
     m_SelectedInstanceIDs: []
     m_LastClickedInstanceID: 0
-    m_HadKeyboardFocusLastEvent: 0
+    m_HadKeyboardFocusLastEvent: 1
     m_ExpandedInstanceIDs:
     - m_Data: 0
     m_RenameOverlay:
@@ -751,18 +764,34 @@ MonoBehaviour:
     m_DynamicPanelContainerData: []
     m_OverlaysVisible: 1
     m_DynamicPanelBehavior: 0
-  m_ObjectsLockedBeforeSerialization: []
-  m_InstanceIDsLockedBeforeSerialization: 
+  m_ObjectsLockedBeforeSerialization:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  m_InstanceIDsLockedBeforeSerialization: 06c00000
   m_PreviewResizer:
     m_CachedPref: 160
     m_ControlHash: -371814159
     m_PrefName: Preview_InspectorPreview
   m_LastInspectedObjectInstanceID: -1
-  m_LastVerticalScrollValue: 0
+  m_LastVerticalScrollValue: 120
   m_GlobalObjectId: 
   m_InspectorMode: 0
   m_LockTracker:
-    m_IsLocked: 0
+    m_IsLocked: 1
   m_PreviewWindow: {fileID: 0}
 --- !u!114 &15
 MonoBehaviour:
@@ -809,7 +838,11 @@ MonoBehaviour:
       m_LastClickedID:
         m_Data: 0
       m_ExpandedIDs:
-      - m_Data: -59310
+      - m_Data: -6350
+      - m_Data: -6152
+      - m_Data: -2440
+      - m_Data: -1500
+      - m_Data: 49158
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -1444,9 +1477,9 @@ MonoBehaviour:
   m_AudioPlay: 0
   m_DebugDrawModesUseInteractiveLightBakingData: 0
   m_Position:
-    m_Target: {x: -0.54401445, y: -0.12125998, z: 0.03392602}
+    m_Target: {x: -0.6050613, y: -0.49837512, z: 0.04010416}
     speed: 2
-    m_Value: {x: -0.54401445, y: -0.12125998, z: 0.03392602}
+    m_Value: {x: -0.6050613, y: -0.49837512, z: 0.04010416}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -1496,9 +1529,9 @@ MonoBehaviour:
     speed: 2
     m_Value: {x: 0, y: 0, z: 0, w: 1}
   m_Size:
-    m_Target: 6.607396
+    m_Target: 5.9895763
     speed: 2
-    m_Value: 6.607396
+    m_Value: 5.9895763
   m_Ortho:
     m_Target: 1
     speed: 2
