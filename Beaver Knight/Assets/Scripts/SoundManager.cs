@@ -88,7 +88,8 @@ public class SoundManager : MonoBehaviour
     private List<AudioClip> _musicList;
     /// <summary>
     /// Beaver Adventure: waltzish string-focussed track, bouncy and hopeful, a bit whimsical. Probably for level 1
-    /// Duet for Beaver Harpsichord and organ: short, slow, angry duet. Probably for main menu
+    /// Duet for Harpsichord and organ: short, slow, angry duet. Probably for main menu
+    /// Escape Room: bright, jollyish canon. Probably for level 3
     /// </summary>
     public List<AudioClip> MusicList
     {
