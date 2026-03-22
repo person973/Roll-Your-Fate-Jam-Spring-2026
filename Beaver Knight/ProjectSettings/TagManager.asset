@@ -6,11 +6,12 @@ TagManager:
   tags:
   - ground
   - playerhead
+  - spike
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - ground
   - Water
   - UI
   - 
