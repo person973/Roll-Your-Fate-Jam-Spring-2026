@@ -29,21 +29,14 @@ public class MoveableBlock : MonoBehaviour
         {
             _soundManager.PlaySound(_soundManager.PlayerSounds[2]);
             //Add call to death function
+            string currentSceneName = SceneManager.GetActiveScene().name;
+
+            SceneManager.LoadScene(currentSceneName);
         } 
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
         _soundManager.PlaySound(_soundManager.LevelSounds[1]);
-        if (collision.gameObject.Equals(Player))
-        {
-            rb.bodyType = RigidbodyType2D.Kinematic;
-        }
-    }
-
-    private void OnCollisionExit2D(Collision2D collision)
-    {
-        if (collision.gameObject.Equals(Player))
-            rb.bodyType = RigidbodyType2D.Dynamic;
     }
 }

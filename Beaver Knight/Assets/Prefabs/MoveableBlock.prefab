@@ -12,7 +12,8 @@ GameObject:
   - component: {fileID: 1459398214176758589}
   - component: {fileID: 3122707310067393570}
   - component: {fileID: 6976277908249516383}
-  - component: {fileID: 3818455970759239664}
+  - component: {fileID: 6717028621112782152}
+  - component: {fileID: 5188243850470177098}
   m_Layer: 0
   m_Name: MoveableBlock
   m_TagString: Untagged
@@ -167,7 +168,22 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!114 &3818455970759239664
+--- !u!114 &6717028621112782152
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7029563336108276430}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7c46aa9973b1e764ab3cddabe91c3289, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MovingBlockMovement
+  rb: {fileID: 6976277908249516383}
+  gravityStrength: 9.81
+  characterController: {fileID: 0}
+--- !u!114 &5188243850470177098
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -179,5 +195,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df3456bd6a36349089aa5e064925c424, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MoveableBlock
-  Player: {fileID: 2180913848054257825, guid: 275a65a03b5094d4c86096f1036d62df, type: 3}
-  _soundManagerGameObject: {fileID: 2063170017325464278, guid: de73319cb313734419a938b72b70b2ef, type: 3}
+  Player: {fileID: 0}
+  _soundManagerGameObject: {fileID: 0}
