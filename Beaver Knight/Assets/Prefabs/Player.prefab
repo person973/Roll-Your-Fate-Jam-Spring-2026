@@ -211,4 +211,5 @@ MonoBehaviour:
       m_Action: Rotate
       m_Flags: 0
     m_Flags: 0
+  _soundManagerGameObject: {fileID: 2063170017325464278, guid: de73319cb313734419a938b72b70b2ef, type: 3}
   gravityDirection: {x: 0, y: -1}
