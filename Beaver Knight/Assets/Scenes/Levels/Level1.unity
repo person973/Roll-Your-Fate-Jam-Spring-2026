@@ -167,6 +167,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3818455970759239664, guid: 3fb4d0dd3dc814a7db9585406799fb6a, type: 3}
+      propertyPath: Player
+      value: 
+      objectReference: {fileID: 1043460001}
     - target: {fileID: 7029563336108276430, guid: 3fb4d0dd3dc814a7db9585406799fb6a, type: 3}
       propertyPath: m_Name
       value: MoveableBlock
@@ -325,7 +329,7 @@ GameObject:
   - component: {fileID: 388903388}
   m_Layer: 0
   m_Name: Grid
-  m_TagString: Untagged
+  m_TagString: ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -414,6 +418,10 @@ PrefabInstance:
       propertyPath: mainCamera
       value: 
       objectReference: {fileID: 628447856}
+    - target: {fileID: 3858979417593231834, guid: 275a65a03b5094d4c86096f1036d62df, type: 3}
+      propertyPath: moveAction.m_Name
+      value: Move
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -30775,6 +30783,11 @@ RectTransform:
   m_AnchoredPosition: {x: 0.1733, y: 0.6249}
   m_SizeDelta: {x: 15.9742, y: 11.8774}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &1043460001 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2180913848054257825, guid: 275a65a03b5094d4c86096f1036d62df, type: 3}
+  m_PrefabInstance: {fileID: 406911664}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1326106671
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -30823,6 +30836,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3818455970759239664, guid: 3fb4d0dd3dc814a7db9585406799fb6a, type: 3}
+      propertyPath: Player
+      value: 
+      objectReference: {fileID: 1043460001}
     - target: {fileID: 7029563336108276430, guid: 3fb4d0dd3dc814a7db9585406799fb6a, type: 3}
       propertyPath: m_Name
       value: MoveableBlock (2)
