@@ -177,25 +177,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8efa4839987350e4e96e206a63317a9d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SoundManager
-  _audioSourcePlayer: {fileID: 0}
+  _audioSourcePlayer: {fileID: 6785167245009574440}
   _playerSounds:
   - {fileID: 8300000, guid: b70ed5c632c8b01499d6a0b294a92749, type: 3}
   - {fileID: 8300000, guid: 6c15927bcc41c394aae8a53339ec149d, type: 3}
   - {fileID: 8300000, guid: 603d87938cbcb79419f50a37751a04ab, type: 3}
-  _audioSourceLevel: {fileID: 0}
+  _audioSourceLevel: {fileID: 1241230049022430845}
   _levelSounds:
   - {fileID: 8300000, guid: 7ddc293aa27952f49817a1d9ded10142, type: 3}
   - {fileID: 8300000, guid: 37da5ed8773ac2e4e84dec0e64c7ec1d, type: 3}
   - {fileID: 8300000, guid: dec8f05fa1fc041439fa83229838657b, type: 3}
   - {fileID: 8300000, guid: 6984af799b20bcc43882debaa5f23e5a, type: 3}
   - {fileID: 8300000, guid: 64a3948d7d19ded4b89cfa437ca0617c, type: 3}
-  _audioSourceMusic: {fileID: 0}
+  _audioSourceMusic: {fileID: 7275312669938200656}
   _musicList:
   - {fileID: 8300000, guid: de6192fe0f958744da045f43d981b625, type: 3}
   - {fileID: 8300000, guid: 81f1eb7db4e88ad49a8d936e57bcd8ba, type: 3}
   - {fileID: 8300000, guid: 5a617dc54d0776b48b4c733fef3d93e7, type: 3}
   - {fileID: 8300000, guid: eb6ed2c5995b4724baeaf4f0625ec0ac, type: 3}
-  _audioSourceMenu: {fileID: 0}
+  _audioSourceMenu: {fileID: 514110714260195375}
   _menuSounds:
   - {fileID: 8300000, guid: 9b0a77700055caf448029858d5edec6d, type: 3}
   - {fileID: 8300000, guid: 2581d85b8d0d5224d8d14ba962411a81, type: 3}
