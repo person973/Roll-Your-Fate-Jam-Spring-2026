@@ -9,6 +9,8 @@ public class CharacterController : MonoBehaviour
     [SerializeField] private float gravityStrength = 9.81f;
     [SerializeField] private float doublePressWindow = 0.3f;
 
+    [SerializeField] private Camera mainCamera;
+
     public InputAction rotateAction;
     private InputAction moveAction;
 
@@ -16,8 +18,7 @@ public class CharacterController : MonoBehaviour
     private float lastAPressTime = -1f;
     private float lastDPressTime = -1f;
 
-    //Made public so the moving blocks could follow the gravity
-    public Vector2 gravityDirection = Vector2.down;
+    private Vector2 gravityDirection = Vector2.down;
 
     void Start()
     {
@@ -91,5 +92,6 @@ public class CharacterController : MonoBehaviour
 
         //rotate the player sprite
         transform.rotation *= rotation;
+        mainCamera.transform.rotation *= rotation;
     }
 }
