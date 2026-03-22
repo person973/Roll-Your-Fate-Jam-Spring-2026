@@ -1,6 +1,6 @@
-using NUnit.Framework;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 /// <summary>
 /// What the sound is being played from. This is used to determine what audio source the audio clip will play from.
@@ -9,34 +9,17 @@ using UnityEngine;
 /// music: any background music that plays during the game
 /// menu: sounds made by the menu (button hover/click)
 /// </summary>
-public enum SoundTarget
-{
-    player,
-    level,
-    music,
-    menu
-}
+//public enum SoundTarget
+//{
+//    player,
+//    level,
+//    music,
+//    menu
+//}
 
 public class SoundManager : MonoBehaviour
 {
     //Fields
-    private static SoundManager _instance = null;
-    /// <summary>
-    /// In order to make this a singleton, _instance is used to create an instance.
-    /// </summary>
-    public static SoundManager Instance
-    {
-        get
-        {
-            if (_instance == null)
-            {
-                _instance = new SoundManager();
-            }
-
-            return _instance;
-        }
-    }
-
     [SerializeField]
     [Tooltip("The Audio Source that player sounds will be played from.")]
     private AudioSource _audioSourcePlayer;
@@ -120,35 +103,66 @@ public class SoundManager : MonoBehaviour
     }
 
     /// <summary>
-    /// Constructor, must be private in order to be a singleton
+    /// Constructor
     /// </summary>
-    private SoundManager() {}
+    public SoundManager() 
+    {
+        _playerSounds = new List<AudioClip>();
+        _levelSounds = new List<AudioClip>();
+        _musicList = new List<AudioClip>();
+        _menuSounds = new List<AudioClip>();
+    }
 
     //Methods
+    public void Update()
+    {
+        //Change scene names later
+        if(SceneManager.GetActiveScene().name == "Level 1")
+        {
+            StopMusic();
+            PlayMusic(_musicList[0]);
+        }
+        else if (SceneManager.GetActiveScene().name == "Level 2")
+        {
+            StopMusic();
+            PlayMusic(_musicList[2]);
+        }
+        else if (SceneManager.GetActiveScene().name == "Level 3")
+        {
+            StopMusic();
+            PlayMusic(_musicList[3]);
+        }
+        else if (SceneManager.GetActiveScene().name == "Main Menu")
+        {
+            StopMusic();
+            PlayMusic(_musicList[1]);
+        }
+    }
+
     /// <summary>
     /// Plays a sound somewhere in the game.
     /// </summary>
     /// <param name="target">What type of sound it is (player, level, music, menu)</param>
     /// <param name="sound">The audio clip for the sound</param>
-    public void PlaySound(SoundTarget target, AudioClip sound)
+    public void PlaySound(AudioClip sound)
     {
-        if(target == SoundTarget.player)
+        if (PlayerSounds.Contains(sound))
         {
             _audioSourcePlayer.clip = sound;
             _audioSourcePlayer.Play();
         }
-        else if (target == SoundTarget.level)
+        else if (LevelSounds.Contains(sound))
         {
             _audioSourceLevel.clip = sound;
             _audioSourceLevel.Play();
         }
         //This works on its own, but PlayMusic is preferred for playing music
-        else if (target == SoundTarget.music)
+        else if (MusicList.Contains(sound))
         {
             _audioSourceMusic.clip = sound;
             _audioSourceMusic.Play();
         }
-        else if (target == SoundTarget.menu)
+        else if (MenuSounds.Contains(sound))
         {
             _audioSourceMenu.clip = sound;
             _audioSourceMenu.Play();

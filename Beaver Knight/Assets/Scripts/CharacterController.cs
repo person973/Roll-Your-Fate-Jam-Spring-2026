@@ -20,6 +20,16 @@ public class CharacterController : MonoBehaviour
 
     private Vector2 gravityDirection = Vector2.down;
 
+    //Temp fix since singletons don't wanna work
+    [SerializeField]
+    private GameObject _soundManagerGameObject;
+    private SoundManager _soundManager;
+    private void Awake()
+    {
+        _soundManager = _soundManagerGameObject.GetComponent<SoundManager>();   //Unity compiler says it's not assigned, even though it 
+                                                                                    //is, show vinny
+    }
+
     void Start()
     {
         moveAction = InputSystem.actions.FindAction("Move");
@@ -93,5 +103,6 @@ public class CharacterController : MonoBehaviour
         //rotate the player sprite
         transform.rotation *= rotation;
         mainCamera.transform.rotation *= rotation;
+        _soundManager.PlaySound(_soundManager.LevelSounds[4]);
     }
 }

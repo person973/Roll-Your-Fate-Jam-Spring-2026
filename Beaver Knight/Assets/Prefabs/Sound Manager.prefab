@@ -397,6 +397,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8541464915241276341}
   - component: {fileID: 7244390784042009668}
+  - component: {fileID: 7583184634459903372}
   m_Layer: 0
   m_Name: Sound Manager
   m_TagString: Untagged
@@ -457,6 +458,14 @@ MonoBehaviour:
   _menuSounds:
   - {fileID: 8300000, guid: 9b0a77700055caf448029858d5edec6d, type: 3}
   - {fileID: 8300000, guid: 2581d85b8d0d5224d8d14ba962411a81, type: 3}
+--- !u!81 &7583184634459903372
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2063170017325464278}
+  m_Enabled: 1
 --- !u!1 &2147170863577044529
 GameObject:
   m_ObjectHideFlags: 0
