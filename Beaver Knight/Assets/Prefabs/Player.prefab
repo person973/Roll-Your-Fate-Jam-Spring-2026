@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 3858979417593231834}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -180,6 +180,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CharacterController
   rb: {fileID: 2727110958533668669}
+  playerPrefab: {fileID: 0}
+  spawnPoint: {x: 0, y: 0, z: 0}
   movementSpeed: 7.5
   gravityStrength: 9.81
   doublePressWindow: 0.3
@@ -242,3 +244,4 @@ MonoBehaviour:
       m_Action: Move
       m_Flags: 8
     m_Flags: 0
+  _soundManagerGameObject: {fileID: 2063170017325464278, guid: de73319cb313734419a938b72b70b2ef, type: 3}

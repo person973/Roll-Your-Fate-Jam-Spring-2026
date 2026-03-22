@@ -35,15 +35,13 @@ public class CharacterController : MonoBehaviour
     private SoundManager _soundManager;
 
     public Vector2 GravityDirection { get => gravityDirection; private set => gravityDirection = value; }
-
+    
     private void Awake()
     {
         _soundManager = _soundManagerGameObject.GetComponent<SoundManager>();
     }
 
     private SpriteRenderer sprite;
-
-    public Vector2 GravityDirection { get => gravityDirection; private set => gravityDirection = value; }
 
     void Start()
     {
