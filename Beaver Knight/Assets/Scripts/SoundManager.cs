@@ -109,13 +109,13 @@ public class SoundManager : MonoBehaviour
         {
             PlaySound(_musicList[0], true);
         }
-        else if (SceneManager.GetActiveScene().name == "Level2")
+        else if (SceneManager.GetActiveScene().name == "NewLevel2")
         {
-            PlaySound(_musicList[2], true);
+            PlaySound(_musicList[3], true);
         }
         else if (SceneManager.GetActiveScene().name == "Level3")
         {
-            PlaySound(_musicList[3], true);
+            PlaySound(_musicList[2], true);
         }
         else if (SceneManager.GetActiveScene().name == "MainMenu" || SceneManager.GetActiveScene().name == "GameOver" ||
             SceneManager.GetActiveScene().name == "Win" || SceneManager.GetActiveScene().name == "LevelSelect")
