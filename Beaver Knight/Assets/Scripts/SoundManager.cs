@@ -105,21 +105,22 @@ public class SoundManager : MonoBehaviour
     {
         //Change scene names later
         //Doesn't work
-        if (SceneManager.GetActiveScene().name == "WoodBlockTest")
+        if (SceneManager.GetActiveScene().name == "Level1")
         {
-            PlayMusic(_musicList[0]);
+            PlaySound(_musicList[0], true);
         }
-        else if (SceneManager.GetActiveScene().name == "Level 2")
+        else if (SceneManager.GetActiveScene().name == "Level2")
         {
-            PlayMusic(_musicList[2]);
+            PlaySound(_musicList[2], true);
         }
-        else if (SceneManager.GetActiveScene().name == "Level 3")
+        else if (SceneManager.GetActiveScene().name == "Level3")
         {
-            PlayMusic(_musicList[3]);
+            PlaySound(_musicList[3], true);
         }
-        else if (SceneManager.GetActiveScene().name == "Main Menu")
+        else if (SceneManager.GetActiveScene().name == "MainMenu" || SceneManager.GetActiveScene().name == "GameOver" ||
+            SceneManager.GetActiveScene().name == "Win" || SceneManager.GetActiveScene().name == "LevelSelect")
         {
-            PlayMusic(_musicList[1]);
+            PlaySound(_musicList[1], true);
         }
     }
 
@@ -192,8 +193,7 @@ public class SoundManager : MonoBehaviour
     public void PlayMusic(AudioClip music)
     {
         _audioSourceMusic.clip = music;
-        _audioSourceMusic.loop = true;
-        _audioSourceMusic.Play();
+        _audioSourceMusic.PlayOneShot(music);
     }
 
     /// <summary>
