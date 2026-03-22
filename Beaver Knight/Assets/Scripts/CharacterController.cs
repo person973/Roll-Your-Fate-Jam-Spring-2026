@@ -1,10 +1,14 @@
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.Controls;
+using UnityEngine.SceneManagement;
 
 public class CharacterController : MonoBehaviour
 {
     [SerializeField] private Rigidbody2D rb;
+    [SerializeField] private GameObject playerPrefab;
+    [SerializeField] private Vector3 spawnPoint;
     [SerializeField] private float movementSpeed = 7.5f;
     [SerializeField] private float gravityStrength = 9.81f;
     [SerializeField] private float doublePressWindow = 0.3f;
@@ -21,7 +25,7 @@ public class CharacterController : MonoBehaviour
     private float lastAPressTime = -1f;
     private float lastDPressTime = -1f;
 
-    private Vector2 gravityDirection = Vector2.down;
+    public Vector2 gravityDirection = Vector2.down;
 
     private SpriteRenderer sprite;
 
@@ -119,4 +123,17 @@ public class CharacterController : MonoBehaviour
         transform.rotation *= rotation;
         mainCamera.transform.rotation *= rotation;
     }
+
+    void OnCollisionEnter2D(Collision2D collision)
+    {
+        //If the player touches spikes destory and create a new player.
+        if (collision.gameObject.CompareTag("spike"))
+        {
+            //restartLevel.RestartScene();
+            string currentSceneName = SceneManager.GetActiveScene().name;
+
+            SceneManager.LoadScene(currentSceneName);
+        }
+    }
 }
+
