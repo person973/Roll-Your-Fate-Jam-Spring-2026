@@ -111,4 +111,14 @@ public class CharacterController : MonoBehaviour
         transform.rotation *= rotation;
         mainCamera.transform.rotation *= rotation;
     }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        _soundManager.PlaySound(_soundManager.PlayerSounds[1]);
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        _soundManager.PlaySound(_soundManager.PlayerSounds[1]);
+    }
 }

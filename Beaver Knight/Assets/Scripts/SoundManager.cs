@@ -141,7 +141,7 @@ public class SoundManager : MonoBehaviour
             }
 
             _audioSourcePlayer.clip = sound;
-            _audioSourcePlayer.Play();
+            _audioSourcePlayer.PlayOneShot(sound);
         }
         else if (LevelSounds.Contains(sound))
         {
@@ -154,7 +154,7 @@ public class SoundManager : MonoBehaviour
             }
 
             _audioSourceLevel.clip = sound;
-            _audioSourceLevel.Play();
+            _audioSourceLevel.PlayOneShot(sound);
         }
         //This works on its own, but PlayMusic is preferred for playing music
         else if (MusicList.Contains(sound))
@@ -168,7 +168,7 @@ public class SoundManager : MonoBehaviour
             }
 
             _audioSourceMusic.clip = sound;
-            _audioSourceMusic.Play();
+            _audioSourceMusic.PlayOneShot(sound);
         }
         else if (MenuSounds.Contains(sound))
         {
@@ -181,7 +181,7 @@ public class SoundManager : MonoBehaviour
             }
 
             _audioSourceMenu.clip = sound;
-            _audioSourceMenu.Play();
+            _audioSourceMenu.PlayOneShot(sound);
         }
     }
 
