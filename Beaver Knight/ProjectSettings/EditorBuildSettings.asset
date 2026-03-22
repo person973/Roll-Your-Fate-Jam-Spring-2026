@@ -5,9 +5,18 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/WoodBlockTest.unity
     guid: 8420e92d3ca584c7f89ca46bb36d5595
+  - enabled: 1
+    path: Assets/Scenes/Levels/Level1.unity
+    guid: 6585bc7aacd26ea4c82fba88628cb5e5
+  - enabled: 1
+    path: Assets/Scenes/Levels/Level2.unity
+    guid: d07d2550eb911cb4495d3e4d63d45b66
+  - enabled: 1
+    path: Assets/Scenes/Levels/Level3.unity
+    guid: 133394cee4524fc4e964c81171695814
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   m_UseUCBPForAssetBundles: 0
