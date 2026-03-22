@@ -3,6 +3,12 @@ using UnityEngine.SceneManagement;
 
 public class Change_Scene : MonoBehaviour
 {
+    [SerializeField] string scene;
+    public void NewScene(string sceneName)
+    {
+        SceneManager.LoadScene(sceneName);
+    }
+
     /// <summary>
     /// Starts the game at level 1
     /// </summary>
@@ -16,7 +22,7 @@ public class Change_Scene : MonoBehaviour
     /// </summary>
     public void ToLevel2()
     {
-        SceneManager.LoadScene("Level2");
+        SceneManager.LoadScene("NewLevel2");
     }
 
     /// <summary>
@@ -43,8 +49,11 @@ public class Change_Scene : MonoBehaviour
         SceneManager.LoadScene("LevelSelect");
     }
 
-    public void ToQuit()
+    private void OnCollisionEnter2D(Collision2D collision)
     {
-        
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            NewScene(scene);
+        }
     }
 }
