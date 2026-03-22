@@ -3,16 +3,48 @@ using UnityEngine.SceneManagement;
 
 public class Change_Scene : MonoBehaviour
 {
-    [SerializeField] string scene;
-    public void NewScene(string sceneName)
+    /// <summary>
+    /// Starts the game at level 1
+    /// </summary>
+    public void ToLevel1()
     {
-        SceneManager.LoadScene(sceneName);
+        SceneManager.LoadScene("Level1");
     }
-    private void OnTriggerEnter2D(Collider2D collision)
+
+    /// <summary>
+    /// Starts the game at level 2
+    /// </summary>
+    public void ToLevel2()
     {
-        if(collision.gameObject.CompareTag("Player"))
-        {
-            NewScene(scene);
-        }
+        SceneManager.LoadScene("Level2");
+    }
+
+    /// <summary>
+    /// Starts the game at level 3
+    /// </summary>
+    public void ToLevel3()
+    {
+        SceneManager.LoadScene("Level3");
+    }
+
+    /// <summary>
+    /// Changes the scene to the main menu
+    /// </summary>
+    public void ToMainMenu()
+    {
+        SceneManager.LoadScene("MainMenu");
+    }
+
+    /// <summary>
+    /// Changes the scene to the level select
+    /// </summary>
+    public void ToLevelSelect()
+    {
+        SceneManager.LoadScene("LevelSelect");
+    }
+
+    public void ToQuit()
+    {
+        
     }
 }
