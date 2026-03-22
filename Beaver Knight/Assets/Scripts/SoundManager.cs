@@ -1,21 +1,8 @@
+using System;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-
-/// <summary>
-/// What the sound is being played from. This is used to determine what audio source the audio clip will play from.
-/// player: player sounds are any sounds made by the player (walking, impact, chomp)
-/// level: level sounds are any level geometry (box impact/death) and rotation
-/// music: any background music that plays during the game
-/// menu: sounds made by the menu (button hover/click)
-/// </summary>
-//public enum SoundTarget
-//{
-//    player,
-//    level,
-//    music,
-//    menu
-//}
 
 public class SoundManager : MonoBehaviour
 {
@@ -117,9 +104,9 @@ public class SoundManager : MonoBehaviour
     public void Update()
     {
         //Change scene names later
-        if(SceneManager.GetActiveScene().name == "Level 1")
+        //Doesn't work
+        if (SceneManager.GetActiveScene().name == "Level 1")
         {
-            StopMusic();
             PlayMusic(_musicList[0]);
         }
         else if (SceneManager.GetActiveScene().name == "Level 2")
@@ -144,26 +131,58 @@ public class SoundManager : MonoBehaviour
     /// </summary>
     /// <param name="target">What type of sound it is (player, level, music, menu)</param>
     /// <param name="sound">The audio clip for the sound</param>
-    public void PlaySound(AudioClip sound)
+    public void PlaySound(AudioClip sound, bool checkIfPlaying = false)
     {
         if (PlayerSounds.Contains(sound))
         {
+            if(checkIfPlaying)
+            {
+                if(_audioSourcePlayer.isPlaying)
+                {
+                    return;
+                }
+            }
+
             _audioSourcePlayer.clip = sound;
             _audioSourcePlayer.Play();
         }
         else if (LevelSounds.Contains(sound))
         {
+            if (checkIfPlaying)
+            {
+                if (_audioSourceLevel.isPlaying)
+                {
+                    return;
+                }
+            }
+
             _audioSourceLevel.clip = sound;
             _audioSourceLevel.Play();
         }
         //This works on its own, but PlayMusic is preferred for playing music
         else if (MusicList.Contains(sound))
         {
+            if (checkIfPlaying)
+            {
+                if (_audioSourceMusic.isPlaying)
+                {
+                    return;
+                }
+            }
+
             _audioSourceMusic.clip = sound;
             _audioSourceMusic.Play();
         }
         else if (MenuSounds.Contains(sound))
         {
+            if (checkIfPlaying)
+            {
+                if (_audioSourceMenu.isPlaying)
+                {
+                    return;
+                }
+            }
+
             _audioSourceMenu.clip = sound;
             _audioSourceMenu.Play();
         }

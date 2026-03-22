@@ -544,6 +544,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Sound Manager
       objectReference: {fileID: 0}
+    - target: {fileID: 7244390784042009668, guid: de73319cb313734419a938b72b70b2ef, type: 3}
+      propertyPath: _sceneList.Array.size
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8541464915241276341, guid: de73319cb313734419a938b72b70b2ef, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -1386,11 +1390,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2474836716150674232, guid: 275a65a03b5094d4c86096f1036d62df, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -4.36
+      value: -0.59
       objectReference: {fileID: 0}
     - target: {fileID: 2474836716150674232, guid: 275a65a03b5094d4c86096f1036d62df, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -8.03
+      value: -8.08
       objectReference: {fileID: 0}
     - target: {fileID: 2474836716150674232, guid: 275a65a03b5094d4c86096f1036d62df, type: 3}
       propertyPath: m_LocalPosition.z

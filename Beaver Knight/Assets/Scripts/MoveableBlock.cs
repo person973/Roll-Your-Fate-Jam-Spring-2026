@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class MoveableBlock : MonoBehaviour
 {
@@ -21,12 +22,15 @@ public class MoveableBlock : MonoBehaviour
     /// <param name="collision"></param>
     void OnTriggerEnter2D(Collider2D collision)
     {
-        _soundManager.PlaySound(_soundManager.LevelSounds[2]);  //Doesn't work
-
         if (collision.gameObject.CompareTag("playerhead"))
         {
             _soundManager.PlaySound(_soundManager.PlayerSounds[2]);
-            Destroy(Player.gameObject);
+            //Add call to death function
         }
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        _soundManager.PlaySound(_soundManager.LevelSounds[1]);
     }
 }

@@ -18,6 +18,8 @@ public class CharacterController : MonoBehaviour
     private float lastAPressTime = -1f;
     private float lastDPressTime = -1f;
 
+    private Vector3 _lastPos;
+
     private Vector2 gravityDirection = Vector2.down;
 
     //Temp fix since singletons don't wanna work
@@ -26,8 +28,7 @@ public class CharacterController : MonoBehaviour
     private SoundManager _soundManager;
     private void Awake()
     {
-        _soundManager = _soundManagerGameObject.GetComponent<SoundManager>();   //Unity compiler says it's not assigned, even though it 
-                                                                                    //is, show vinny
+        _soundManager = _soundManagerGameObject.GetComponent<SoundManager>();
     }
 
     void Start()
@@ -63,6 +64,10 @@ public class CharacterController : MonoBehaviour
                           + gravityDirection.normalized * gravityVelocity;
     }
 
+    /// <summary>
+    /// Is called whenever the player moves
+    /// </summary>
+    /// <param name="ctx"></param>
     void OnRotate(InputAction.CallbackContext ctx)
     {
         if (ctx.control is KeyControl keyControl)
@@ -96,6 +101,8 @@ public class CharacterController : MonoBehaviour
 
     private void RotateGravity(float angleDeg)
     {
+        _soundManager.PlaySound(_soundManager.LevelSounds[4]);
+
         //rotate the gravity vector around Z
         Quaternion rotation = Quaternion.Euler(0, 0, angleDeg);
         gravityDirection = rotation * gravityDirection;
@@ -103,6 +110,5 @@ public class CharacterController : MonoBehaviour
         //rotate the player sprite
         transform.rotation *= rotation;
         mainCamera.transform.rotation *= rotation;
-        _soundManager.PlaySound(_soundManager.LevelSounds[4]);
     }
 }
