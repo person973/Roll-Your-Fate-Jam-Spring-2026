@@ -151,3 +151,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cb768a29800424059a4e0321eb2cf0a6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::WoodBlock
+  _soundManagerGameObject: {fileID: 6704317030014241945}

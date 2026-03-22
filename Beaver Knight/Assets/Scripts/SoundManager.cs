@@ -105,23 +105,20 @@ public class SoundManager : MonoBehaviour
     {
         //Change scene names later
         //Doesn't work
-        if (SceneManager.GetActiveScene().name == "Level 1")
+        if (SceneManager.GetActiveScene().name == "WoodBlockTest")
         {
             PlayMusic(_musicList[0]);
         }
         else if (SceneManager.GetActiveScene().name == "Level 2")
         {
-            StopMusic();
             PlayMusic(_musicList[2]);
         }
         else if (SceneManager.GetActiveScene().name == "Level 3")
         {
-            StopMusic();
             PlayMusic(_musicList[3]);
         }
         else if (SceneManager.GetActiveScene().name == "Main Menu")
         {
-            StopMusic();
             PlayMusic(_musicList[1]);
         }
     }
@@ -196,6 +193,7 @@ public class SoundManager : MonoBehaviour
     {
         _audioSourceMusic.clip = music;
         _audioSourceMusic.loop = true;
+        _audioSourceMusic.Play();
     }
 
     /// <summary>

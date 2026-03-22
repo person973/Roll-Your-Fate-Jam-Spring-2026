@@ -179,4 +179,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df3456bd6a36349089aa5e064925c424, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MoveableBlock
-  Player: {fileID: 0}
+  Player: {fileID: 2180913848054257825, guid: 275a65a03b5094d4c86096f1036d62df, type: 3}
+  _soundManagerGameObject: {fileID: 2063170017325464278, guid: de73319cb313734419a938b72b70b2ef, type: 3}
