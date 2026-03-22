@@ -25,7 +25,21 @@ public class CharacterController : MonoBehaviour
     private float lastAPressTime = -1f;
     private float lastDPressTime = -1f;
 
-    public Vector2 gravityDirection = Vector2.down;
+    private Vector3 _lastPos;
+
+    private Vector2 gravityDirection = Vector2.down;
+
+    //Temp fix since singletons don't wanna work
+    [SerializeField]
+    private GameObject _soundManagerGameObject;
+    private SoundManager _soundManager;
+
+    public Vector2 GravityDirection { get => gravityDirection; private set => gravityDirection = value; }
+
+    private void Awake()
+    {
+        _soundManager = _soundManagerGameObject.GetComponent<SoundManager>();
+    }
 
     private SpriteRenderer sprite;
 
@@ -82,6 +96,10 @@ public class CharacterController : MonoBehaviour
          moveVal = ctx.ReadValue<float>();
     }
 
+    /// <summary>
+    /// Is called whenever the player moves
+    /// </summary>
+    /// <param name="ctx"></param>
     void OnRotate(InputAction.CallbackContext ctx)
     {
         if (ctx.control is KeyControl keyControl)
@@ -115,6 +133,8 @@ public class CharacterController : MonoBehaviour
 
     private void RotateGravity(float angleDeg)
     {
+        _soundManager.PlaySound(_soundManager.LevelSounds[4]);
+
         //rotate the gravity vector around Z
         Quaternion rotation = Quaternion.Euler(0, 0, angleDeg);
         GravityDirection = rotation * GravityDirection;
