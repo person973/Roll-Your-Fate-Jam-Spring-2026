@@ -10,9 +10,9 @@ public class MovingBlockMovement : MonoBehaviour
     void FixedUpdate()
     {
         //Apply custom gravity every physics step
-        rb.AddForce(characterController.gravityDirection * gravityStrength, ForceMode2D.Force);
+        rb.AddForce(characterController.GravityDirection * gravityStrength, ForceMode2D.Force);
 
         //preserve current velocity
-        float gravityVelocity = Vector2.Dot(rb.linearVelocity, characterController.gravityDirection.normalized);
+        float gravityVelocity = Vector2.Dot(rb.linearVelocity, characterController.GravityDirection.normalized);
     }
 }

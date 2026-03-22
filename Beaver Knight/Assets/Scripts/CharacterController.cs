@@ -20,9 +20,14 @@ public class CharacterController : MonoBehaviour
 
     private Vector2 gravityDirection = Vector2.down;
 
+    private SpriteRenderer sprite;
+
+    public Vector2 GravityDirection { get => gravityDirection; private set => gravityDirection = value; }
+
     void Start()
     {
         moveAction = InputSystem.actions.FindAction("Move");
+        sprite = GetComponent<SpriteRenderer>();
     }
 
     void OnEnable()
@@ -40,17 +45,23 @@ public class CharacterController : MonoBehaviour
     void FixedUpdate()
     {
         //Apply custom gravity every physics step
-        rb.AddForce(gravityDirection * gravityStrength, ForceMode2D.Force);
+        rb.AddForce(GravityDirection * gravityStrength, ForceMode2D.Force);
 
         //set velocity along the "right" axis relative to current orientation
         //movement is on the axis perpendicular to gravity direction
         Vector2 moveVal = moveAction.ReadValue<Vector2>();
         Vector2 moveAxis = new Vector2(transform.right.x, transform.right.y);
         //preserve current velocity
-        float gravityVelocity = Vector2.Dot(rb.linearVelocity, gravityDirection.normalized);
+        float gravityVelocity = Vector2.Dot(rb.linearVelocity, GravityDirection.normalized);
         //movement on the perpendicular axis + gravity on the gravity axis
         rb.linearVelocity = moveAxis * moveVal.x * movementSpeed
-                          + gravityDirection.normalized * gravityVelocity;
+                          + GravityDirection.normalized * gravityVelocity;
+
+        //flip sprite based on move axis
+        if (moveVal.x >= 0)
+            sprite.flipX = false;
+        else
+            sprite.flipX = true;
     }
 
     void OnRotate(InputAction.CallbackContext ctx)
@@ -88,7 +99,7 @@ public class CharacterController : MonoBehaviour
     {
         //rotate the gravity vector around Z
         Quaternion rotation = Quaternion.Euler(0, 0, angleDeg);
-        gravityDirection = rotation * gravityDirection;
+        GravityDirection = rotation * GravityDirection;
 
         //rotate the player sprite
         transform.rotation *= rotation;
