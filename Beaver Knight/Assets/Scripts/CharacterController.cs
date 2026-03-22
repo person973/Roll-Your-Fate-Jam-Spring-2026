@@ -147,11 +147,15 @@ public class CharacterController : MonoBehaviour
         //If the player touches spikes destory and create a new player.
         if (collision.gameObject.CompareTag("spike"))
         {
-            //restartLevel.RestartScene();
-            string currentSceneName = SceneManager.GetActiveScene().name;
-
-            SceneManager.LoadScene(currentSceneName);
+            Death();
         }
+    }
+
+    public void Death()
+    {
+        string currentSceneName = SceneManager.GetActiveScene().name;
+
+        SceneManager.LoadScene(currentSceneName);
     }
 }
 
