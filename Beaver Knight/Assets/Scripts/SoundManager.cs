@@ -107,7 +107,7 @@ public class SoundManager : MonoBehaviour
         //Doesn't work
         if (SceneManager.GetActiveScene().name == "Level1")
         {
-            PlaySound(_musicList[2], true);
+            PlaySound(_musicList[0], true);
         }
         else if (SceneManager.GetActiveScene().name == "Level2")
         {
