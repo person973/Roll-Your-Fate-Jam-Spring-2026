@@ -4,6 +4,9 @@ using System.Linq;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+/// <summary>
+/// Must be included in each scene to work properly
+/// </summary>
 public class SoundManager : MonoBehaviour
 {
     //Fields
@@ -105,19 +108,19 @@ public class SoundManager : MonoBehaviour
     {
         //Change scene names later
         //Doesn't work
-        if (SceneManager.GetActiveScene().name == "WoodBlockTest")
+        if (SceneManager.GetActiveScene().name == "Level1")
         {
             PlayMusic(_musicList[0]);
         }
-        else if (SceneManager.GetActiveScene().name == "Level 2")
+        else if (SceneManager.GetActiveScene().name == "Level2")
         {
             PlayMusic(_musicList[2]);
         }
-        else if (SceneManager.GetActiveScene().name == "Level 3")
+        else if (SceneManager.GetActiveScene().name == "Level3")
         {
             PlayMusic(_musicList[3]);
         }
-        else if (SceneManager.GetActiveScene().name == "Main Menu")
+        else if (SceneManager.GetActiveScene().name == "MainMenu")
         {
             PlayMusic(_musicList[1]);
         }

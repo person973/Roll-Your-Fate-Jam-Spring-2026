@@ -7,6 +7,7 @@ TagManager:
   - ground
   - playerhead
   - spike
+  - squire
   layers:
   - Default
   - TransparentFX

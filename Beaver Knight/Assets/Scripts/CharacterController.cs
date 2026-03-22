@@ -126,8 +126,14 @@ public class CharacterController : MonoBehaviour
         {
             //restartLevel.RestartScene();
             string currentSceneName = SceneManager.GetActiveScene().name;
-
+            _soundManager.PlaySound(_soundManager.PlayerSounds[2]);
             SceneManager.LoadScene(currentSceneName);
+        }
+
+        //If the player touches the squire, advance level
+        if (collision.gameObject.CompareTag("squire"))
+        {
+            _soundManager.PlaySound(_soundManager.PlayerSounds[3]);
         }
     }
 }
