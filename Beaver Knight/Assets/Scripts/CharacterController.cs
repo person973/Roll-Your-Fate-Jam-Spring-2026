@@ -16,7 +16,10 @@ public class CharacterController : MonoBehaviour
     [SerializeField] private Camera mainCamera;
 
     public InputAction rotateAction;
-    private InputAction moveAction;
+    public InputAction moveAction;
+
+    //movement value
+    private float moveVal;
 
     //Per-key double-press tracking
     private float lastAPressTime = -1f;
@@ -32,27 +35,36 @@ public class CharacterController : MonoBehaviour
     private SoundManager _soundManager;
 
     public Vector2 GravityDirection { get => gravityDirection; private set => gravityDirection = value; }
-
+    
     private void Awake()
     {
         _soundManager = _soundManagerGameObject.GetComponent<SoundManager>();
     }
 
+    private SpriteRenderer sprite;
+
     void Start()
     {
         moveAction = InputSystem.actions.FindAction("Move");
+        sprite = GetComponent<SpriteRenderer>();
     }
 
     void OnEnable()
     {
         rotateAction.Enable();
         rotateAction.performed += OnRotate;
+        moveAction.Enable();
+        moveAction.started += OnMove;
+        moveAction.canceled += OnMove;
     }
 
     void OnDisable()
     {
         rotateAction.performed -= OnRotate;
         rotateAction.Disable();
+        moveAction.Disable();
+        moveAction.started -= OnMove;
+        moveAction.canceled -= OnMove;
     }
 
     void FixedUpdate()
@@ -62,13 +74,24 @@ public class CharacterController : MonoBehaviour
 
         //set velocity along the "right" axis relative to current orientation
         //movement is on the axis perpendicular to gravity direction
-        Vector2 moveVal = moveAction.ReadValue<Vector2>();
+        
         Vector2 moveAxis = new Vector2(transform.right.x, transform.right.y);
         //preserve current velocity
         float gravityVelocity = Vector2.Dot(rb.linearVelocity, GravityDirection.normalized);
         //movement on the perpendicular axis + gravity on the gravity axis
-        rb.linearVelocity = moveAxis * moveVal.x * movementSpeed
+        rb.linearVelocity = moveAxis * moveVal * movementSpeed
                           + GravityDirection.normalized * gravityVelocity;
+
+        //flip sprite based on move axis
+        if (moveVal >= 0)
+            sprite.flipX = false;
+        else
+            sprite.flipX = true;
+    }
+
+    void OnMove(InputAction.CallbackContext ctx)
+    {
+         moveVal = ctx.ReadValue<float>();
     }
 
     /// <summary>
